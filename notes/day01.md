@@ -162,7 +162,133 @@ print(documents)
 print(len(documents))                 
 
 
+------------------------------
+## 10.Dictionaries
+A python dictionary groups the diff info together.
+
+In a variable also we store the values but for example 
+name="Python"
+pages=20
+author="John"
+
+these are three diff info which needs to be stored inn one document orelse needs to be stored together thats what dictionaries is for.
 
 
+Syntax :
+document = {
+    "title":"Python Basics",
+    "pages":20,
+    "author":"John"
 
+}
+print(document)
+## output : {'title': 'Python Basics', 'pages': 20, 'author': 'John'}
+
+-dictionary is a key-value pair
+
+key       → value
+-------------------------
+"title"   → "Python Basics"
+"pages"   → 20
+"author"  → "John"
+
+- to get a value of a particular key we can write:
+print(document["title"]) - Python Basics
+
+## example 2:
+document = {"title": "Spring Boot Architecture", "author": "Alex"}
+
+# print(document["title"])          
+Spring Boot Architecture
+
+# document["author"] = "Pratikshya"  
+ change a value
+
+# print(document["author"])          
+Pratikshya
+
+document["pages"] = 20             
+# add a brand new key
+
+print(document)
+
+## why dicitonary matter for AI projects :
+
+- JSON is simply a standard text format for representing data.
+
+- JSON (JavaScript Object Notation) is the standard format almost every API, LLM response, and config file uses to send/receive data over the internet. 
+
+Python dictionaries and JSON look nearly identical.
  
+ A Python dictionary is a Python data structure.
+JSON is a text/data interchange format.
+
+In dictionary , while running the for loop we use .items() which gives us key-value pair , one at a time.
+
+----------------------------------------
+## 11. Functions(def)
+
+a reusable piece of code , which cn be used to run wherever necessary instead of writing multiple times .
+
+def - keyword that starts a function definition
+
+defining a function doesn't run it.
+ Nothing happens until you call it — say_hello() on the last line is what actually executes it.
+
+example :
+def say_hello:
+(
+    print("hello")
+)
+say_hello() //calling the function
+
+
+## function with input parameters :
+def greet(name):
+print(f"Hello,{name}")
+
+greet("Alex")
+greet("Pratikshya")
+
+//here the function greet takes name as the input paramter 
+
+output: 
+Hello, Alex
+Hello, Pratikshya
+
+## function which give back a result(has a return statement)
+
+def add_numbers(a, b):
+    result = a + b
+    return result
+
+total = add_numbers(5, 3)
+print(total) - 8
+
+## imp 
+In a paramterised function when we dont add any value to the parameter while calling the function it crashes so its always good to give defaults paramter value /fallback value.
+
+----------------------------------------------
+
+# 12. String methods:
+Strings come with built-in functions (methods) for cleaning, searching, and transforming text.
+
+1.lower()
+
+2.upper()
+
+3.strip()-removes extra space from start/end
+useful when we accidentally add any input with trailing spaces
+
+4.replace(old,new) - swap text
+
+5.split(separator)-break string into a list
+if a user types tags separated by commas, .split(",") turns that single string into a usable list.
+
+6.in - checks if text contains something
+helps in document title search.
+
+---------------------------------
+
+# 13. Error handling (try / except)
+ A way to handle errors gracefully instead of letting your program crash.
