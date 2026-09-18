@@ -10,6 +10,11 @@
  7.if,elif,else
  8.loops
  9.lists
+ 10.ditonary
+ 11.dictonary and json relationship
+ 12.functions
+ 13.String fucntion
+ 14.Error handling (try,except)
 
 
 

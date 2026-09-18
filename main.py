@@ -152,10 +152,223 @@ print(f"Next year you'll be {age + 1}")
 #ValueError: invalid literal for int() with base 10: 'twenty'
 #so here int doesnt know how to convert twenty into a number so it crashes
 
-try:
-    age = input("Enter your age: ")
-    age = int(age)
-    print(f"Next year you'll be {age + 1}")
-except ValueError:
-    print("Please enter digits only, like 25, not words like 'twenty'")
+#try:
+ #   age = input("Enter your age: ")
+#    age = int(age)
+ #   print(f"Next year you'll be {age + 1}")
+#except ValueError:
+#    print("Please enter digits only, like 25, not words like 'twenty'")
     #you can prevent it from crashing your whole program:
+
+document_types = ("pdf", "txt", "docx")
+
+print(document_types) #("pdf","txt","docx")
+print(document_types[0]) #pdf
+
+supported_types = ("pdf", "txt", "docx")
+
+print(supported_types)
+print(supported_types[1])
+print(type(supported_types))
+
+tag={"stage","commit","push","init"}
+print(tag)
+tags={"stage","commit","push","init","commit"} #duplicate added so set remove duplicate automatically while printing
+print(tags)
+
+tags = {"python", "ai"}
+tags.add("backend")
+print(tags)
+
+tags = ["python", "ai", "python", "llm", "ai", "backend"]
+
+unique_tags = set(tags)
+print(unique_tags)
+print(len(unique_tags))
+print(type(unique_tags))
+
+# List — ordered, changeable, duplicates OK
+documents = ["pdf", "txt", "pdf"]
+documents[0] = "docx"          # ✅ allowed
+print(documents)                # ['docx', 'txt', 'pdf']
+
+# Tuple — ordered, LOCKED, duplicates OK
+supported_types = ("pdf", "txt", "pdf")
+#supported_types[0] = "docx"    # ❌ error — can't change
+
+# Dictionary — labeled data (key → value)
+document = {"title": "Python Basics", "pages": 20}
+print(document["title"])       # access by key, not position
+
+# Set — unique values only, no order, no duplicates
+tags = {"python", "ai", "python"}
+print(tags)                     # {'python', 'ai'} — duplicate auto-removed
+
+
+#classes and objects:
+class Document:
+    pass
+
+doc1 = Document()
+print(doc1) # <__main__.Document object at 0x000001F0FA9B6900> this is saying python's default way of saying here the document object and this is the memory addresst.
+
+
+class Document:#class declared
+    pass
+
+doc1 = Document() #object created
+doc1.title = "Python Basics" #manually add data to object
+doc1.content = "Learning loops."
+
+print(doc1.title)
+print(doc1.content)
+
+#What's happening: doc1.title = "Python Basics" attaches a piece of data called title directly onto the doc1 object — no constructor needed at all. doc1.content = ... does the same for content. Then you read them back with doc1.title / doc1.content.
+
+#so this creates a title data inside object and gives it the value via this. similary with contnet as well
+
+class Document:
+    pass
+doc1= Document()
+doc1.title="Pyhon Heor"
+
+doc2 = Document()
+doc2.title="Java for beginners"
+
+print(doc1.title)
+print(doc2.title)
+
+
+# here two objects are created from same class with different title value stores in it manually
+
+
+#initialiser (--init--)
+
+class Document:
+    def __init__(self,title,content):
+        self.title=title
+        self.content=content
+
+doc1 = Document("Python Basics","LEarning loops")
+print(doc1.title)
+print(doc1.content)
+
+
+class Document:
+    def __init__(self,title,content):
+        self.title=title
+        self.content=content
+doc1=Document("Python basics","Loops")
+doc2=Document("Java","Constructor")
+
+print(doc1.title)
+print(doc1.content)
+print(doc2.title)
+print(doc2.content)
+
+
+class Document: ##this class has two methods one init and other show summmary
+    def __init__(self, title, content):
+        self.title = title
+        self.content = content
+
+    def show_summary(self):
+        print("self is currently:", self.title)
+        print(f"{self.title}: {self.content}")
+
+doc1 = Document("Python Basics", "Learning loops.") #objects created
+doc2 = Document("Java Basics", "Learning classes.")
+
+print("Calling on doc1:")
+doc1.show_summary()
+
+print("Calling on doc2:")
+doc2.show_summary()
+
+
+class Book:
+    def __init__(self,title,author):
+        self.title=title
+        self.author=author
+
+    def show_info(self):
+        print(f"Book {self.title}: by {self.author}")
+book1 =Book("Malgudi Tales","Ruskin Bond")
+book2 = Book("Romeo juliet","William shakesphere")
+
+print("Loading info for book 1")
+book1.show_info()
+
+print("Loading info for book 2")
+book2.show_info()
+
+
+class Vehicle:
+    def __init__(self,brand,model):
+        self.brand=brand
+        self.model=model
+
+    def show_info(self):
+        print(f"Brand :{self.brand},Model:{self.model}")
+
+class Car(Vehicle):
+
+    def __init__(self,brand,model,doors):
+        super().__init__(brand,model)
+        self.doors=doors
+
+    def show_doors(self):
+        print(f"This car has {self.doors} doors")
+
+car=Car("Toyota", "Corolla",4)
+car.show_info()
+car.show_doors()
+
+class Document:
+
+    def __init__(self,title,content):
+        self.title=title
+        self.content=content
+
+    def show_summary(self):
+        print(f"{self.title}: {self.content}")
+
+doc = Document("Java for beginners","Charles")
+doc.show_summary()
+
+file_path = "notes/day02.md"
+print(file_path)
+
+file_path = "notes/day02.md"
+file = open(file_path, "r") #file_path which tell python which file , r means read mode
+content = file.read() #stores the content of the file in content
+print(content) #print that stored in content which is in day02.md
+file.close() #closes the file after finishing the task
+
+
+#better way to write the code 
+#The with statement automatically closes the file for us, even if something goes wrong.
+
+with open(file_path, "r") as file:
+    content = file.read()
+
+print(content)
+
+## file means opened file 
+## content is the text inside that file
+
+## with is prefereed as after the with line it automatically closes that file irrespective of error so we dont need to write the file.close() again
+
+# writing a file
+file_path="notes/text.txt"
+
+with open(file_path,"w") as file:
+    file.write("Hello from pythhon")
+      
+print("Done")
+
+
+open("notes/text.txt", "r")
+open("notes/text.txt", "w")
+open("notes/text.txt", "a")
+    
